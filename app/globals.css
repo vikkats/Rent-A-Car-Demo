@@ -62,6 +62,63 @@ button, input, select { font: inherit; }
 .form-field input::placeholder { color: #93a2a8; }
 .honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
 summary::-webkit-details-marker { display: none; }
+
+/* A small family of tactile details, inspired by printed island travel cards. */
+.paper-panel {
+  border: 1px solid #173e50;
+  border-radius: 12px;
+  background: #fffefa;
+  box-shadow: 6px 6px 0 #173e50;
+  backdrop-filter: none;
+}
+.rate-ticket {
+  position: relative;
+  border-top: 5px solid #ffd166;
+  box-shadow: 7px 7px 0 #eebf57;
+}
+.rate-stamp {
+  border: 1px solid #176b67;
+  border-radius: 4px;
+  transform: rotate(5deg);
+  letter-spacing: .08em;
+}
+.raised-button {
+  border: 1px solid #082f4b;
+  border-radius: 8px;
+  box-shadow: 0 4px 0 #082f4b;
+  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+.raised-button-light { box-shadow: 0 4px 0 #b28c37; border-color: #b28c37; }
+.raised-button:not(:disabled):hover { transform: translateY(-1px); box-shadow: 0 5px 0 #082f4b; }
+.raised-button-light:not(:disabled):hover { box-shadow: 0 5px 0 #b28c37; }
+.raised-button:not(:disabled):active { transform: translateY(3px); box-shadow: 0 1px 0 #082f4b; }
+.raised-button-light:not(:disabled):active { box-shadow: 0 1px 0 #b28c37; }
+.raised-button:disabled { box-shadow: none; transform: none; }
+.inclusion-strip { border-radius: 0 0 10px 10px; border-bottom: 2px solid #c8d6d8; box-shadow: none; }
+.fleet-card {
+  border-color: #355564;
+  border-radius: 10px;
+  box-shadow: 3px 4px 0 #c4d2d5;
+}
+.fleet-card:hover { transform: translateY(-2px); box-shadow: 4px 6px 0 #a9c3c7; }
+.fleet-label { border: 1px solid #355564; border-radius: 4px; background: #fffefa; box-shadow: 2px 2px 0 #355564; }
+.feature-chip { border-radius: 4px; background: transparent; padding-left: 0; padding-right: .65rem; }
+.reason-card { border: 0; border-top: 1px solid #73a3ae; border-radius: 0; background: transparent; padding: 1.5rem 0 0; }
+.reason-card > p:first-child { display: inline-block; padding: .2rem .65rem; background: #ffd166; color: #082f4b; border-radius: 3px; box-shadow: 3px 3px 0 #052f43; font-family: Arial, Helvetica, sans-serif; font-size: 1rem; font-weight: 800; }
+.booking-panel .form-field input, .booking-panel .form-field select { min-width: 0; border-color: #829aa4; border-radius: 6px; box-shadow: inset 0 2px 0 #e9eeec; }
+.trip-calculator { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px dashed #9eb3b9; }
+.day-step { display: grid; place-items: center; width: 2rem; height: 2rem; border: 1px solid #8ba3ac; border-radius: 5px; background: #fff; box-shadow: 0 2px 0 #8ba3ac; cursor: pointer; }
+.day-step:active:not(:disabled) { transform: translateY(2px); box-shadow: none; }
+.day-step:disabled { opacity: .35; box-shadow: none; cursor: default; }
+.day-step:focus-visible, .trip-range:focus-visible { outline: 3px solid #147487; outline-offset: 4px; }
+.trip-range { display: block; appearance: none; -webkit-appearance: none; width: 100%; height: 2.75rem; margin-top: .75rem; background: transparent; cursor: pointer; }
+.trip-range::-webkit-slider-runnable-track { height: 7px; border: 1px solid #91a5ad; border-radius: 4px; background: linear-gradient(to right, #0d5b70 var(--range-progress), #e3e9e7 var(--range-progress)); }
+.trip-range::-moz-range-track { height: 5px; border: 1px solid #91a5ad; border-radius: 4px; background: #e3e9e7; }
+.trip-range::-moz-range-progress { height: 5px; background: #0d5b70; }
+.trip-range::-webkit-slider-thumb { appearance: none; -webkit-appearance: none; width: 23px; height: 23px; margin-top: -9px; border: 2px solid #173e50; border-radius: 6px; background: #ffd166; box-shadow: 0 2px 0 #173e50; }
+.trip-range::-moz-range-thumb { width: 19px; height: 19px; border: 2px solid #173e50; border-radius: 6px; background: #ffd166; box-shadow: 0 2px 0 #173e50; }
+.trip-total { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1rem; padding: .85rem 1rem; border-radius: 5px; background: #082f4b; color: #fff; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }

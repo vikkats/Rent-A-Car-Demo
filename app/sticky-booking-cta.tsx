@@ -32,7 +32,7 @@ export function StickyBookingCta() {
       href="#booking"
       aria-hidden={!visible}
       tabIndex={visible ? undefined : -1}
-      className={`fixed inset-x-4 bottom-4 z-50 inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#ffd166] px-6 text-sm font-extrabold text-[#082f4b] shadow-[0_16px_50px_rgba(3,31,48,.3)] transition duration-300 md:hidden ${
+      className={`raised-button raised-button-light fixed inset-x-4 bottom-4 z-50 inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#ffd166] px-6 text-sm font-extrabold text-[#082f4b] shadow-[0_16px_50px_rgba(3,31,48,.3)] transition duration-300 md:hidden ${
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"
       }`}
     >

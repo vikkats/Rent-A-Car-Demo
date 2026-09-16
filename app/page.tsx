@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { BookingForm } from "./booking-form";
 import { StickyBookingCta } from "./sticky-booking-cta";
+import { TripCalculator } from "./trip-calculator";
 
 const inclusions = [
   { icon: ShieldCheck, label: "Full cover", detail: "Zero excess" },
@@ -130,7 +131,7 @@ export default function Home() {
             <a className="transition hover:text-white" href="#included">What’s included</a>
             <a className="transition hover:text-white" href="#faq">FAQ</a>
           </nav>
-          <a href="#booking" className="inline-flex min-h-11 items-center justify-center rounded-full bg-[#ffd166] px-5 text-sm font-extrabold text-[#082f4b] shadow-[0_10px_30px_rgba(0,0,0,.15)] transition hover:-translate-y-0.5 hover:bg-[#ffdc82] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Check availability</a>
+          <a href="#booking" className="raised-button raised-button-light inline-flex min-h-11 items-center justify-center rounded-full bg-[#ffd166] px-5 text-sm font-extrabold text-[#082f4b] shadow-[0_10px_30px_rgba(0,0,0,.15)] transition hover:-translate-y-0.5 hover:bg-[#ffdc82] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Check availability</a>
         </header>
 
         <div id="top" className="mx-auto grid w-full max-w-[1240px] gap-10 px-5 pb-20 pt-14 sm:px-8 sm:pt-20 lg:grid-cols-[minmax(0,1.12fr)_minmax(330px,.58fr)] lg:px-10 lg:pb-28 lg:pt-24">
@@ -143,29 +144,29 @@ export default function Home() {
             </h1>
             <p className="mt-7 max-w-[590px] text-lg leading-8 text-white/82 sm:text-xl">Full cover, airport delivery, a second driver and zero card deposit are already included. One clear price from arrival to return.</p>
             <div id="hero-ctas" className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <a href="#booking" className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#ffd166] px-7 text-base font-extrabold text-[#082f4b] transition hover:-translate-y-0.5 hover:bg-[#ffdc82] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Check your dates <ArrowRight className="h-4 w-4" aria-hidden="true" /></a>
-              <a href="#compare" className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/30 bg-white/8 px-7 text-base font-bold text-white backdrop-blur transition hover:bg-white/15 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Compare what’s included</a>
+              <a href="#booking" className="raised-button raised-button-light inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#ffd166] px-7 text-base font-extrabold text-[#082f4b] transition hover:-translate-y-0.5 hover:bg-[#ffdc82] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Check your dates <ArrowRight className="h-4 w-4" aria-hidden="true" /></a>
+              <a href="#compare" className="raised-button raised-button-light inline-flex min-h-14 items-center justify-center rounded-full border border-white/30 bg-white/8 px-7 text-base font-bold text-white backdrop-blur transition hover:bg-white/15 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">Compare what’s included</a>
             </div>
             <p className="mt-4 flex items-center gap-2 text-sm text-white/62"><Check className="h-4 w-4 text-[#64d7d0]" aria-hidden="true" />Availability request only · no payment required</p>
           </div>
 
-          <aside className="self-end rounded-[2rem] border border-white/25 bg-white/94 p-6 text-[#102c3c] shadow-[0_30px_90px_rgba(0,0,0,.28)] backdrop-blur sm:p-7 lg:translate-y-10" aria-label="July Mini rate summary">
+          <aside className="paper-panel rate-ticket self-end rounded-[2rem] border border-white/25 bg-white/94 p-6 text-[#102c3c] shadow-[0_30px_90px_rgba(0,0,0,.28)] backdrop-blur sm:p-7 lg:translate-y-10" aria-label="July Mini rate summary">
             <div className="flex items-start justify-between gap-5 border-b border-[#dce5e9] pb-5">
               <div><p className="text-xs font-extrabold uppercase tracking-[0.16em] text-[#2b7f89]">July Mini rate</p><p className="font-display mt-1 text-5xl font-semibold tracking-[-0.04em]">€35<span className="font-sans text-base font-bold text-[#60737d]"> / day</span></p></div>
-              <span className="rounded-full bg-[#dff5f1] px-3 py-1.5 text-xs font-extrabold text-[#176b67]">ALL IN</span>
+              <span className="rate-stamp rounded-full bg-[#dff5f1] px-3 py-1.5 text-xs font-extrabold text-[#176b67]">ALL IN</span>
             </div>
             <ul className="mt-5 space-y-3.5 text-sm font-semibold">
               {["Zero-excess full cover", "€0 credit-card hold", "Airport handover", "Second driver", "24/7 phone support"].map((item) => (
                 <li key={item} className="flex items-center gap-3"><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-[#e6f7f4] text-[#17786f]"><Check className="h-3.5 w-3.5" aria-hidden="true" /></span>{item}</li>
               ))}
             </ul>
-            <p className="mt-6 rounded-2xl bg-[#f3f1ea] px-4 py-3 text-sm leading-6 text-[#4c626d]">Seven July days in a Mini: <strong className="text-[#102c3c]">€245 total</strong>. You see the full cost before you say yes.</p>
+            <TripCalculator />
           </aside>
         </div>
       </section>
 
       <section id="included" className="relative z-10 mx-auto -mt-1 w-full max-w-[1240px] px-5 sm:px-8 lg:px-10">
-        <div className="grid overflow-hidden rounded-b-[2rem] bg-white shadow-[0_22px_70px_rgba(18,55,70,.09)] sm:grid-cols-2 lg:grid-cols-6">
+        <div className="inclusion-strip grid overflow-hidden rounded-b-[2rem] bg-white shadow-[0_22px_70px_rgba(18,55,70,.09)] sm:grid-cols-2 lg:grid-cols-6">
           {inclusions.map(({ icon: Icon, label, detail }) => (
             <div key={label} className="flex items-center gap-3 border-b border-[#e5ecee] p-5 last:border-0 sm:border-r lg:border-b-0">
               <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#e8f5f3] text-[#16766f]"><Icon className="h-5 w-5" aria-hidden="true" /></span>
@@ -182,7 +183,7 @@ export default function Home() {
           <p className="mt-6 max-w-[540px] text-lg leading-8 text-[#5e727c]">A low headline rate can leave out the things you cannot drive away without. Before choosing any car in Kos, ask these five questions.</p>
           <p className="mt-5 border-l-4 border-[#f0b84f] pl-5 text-base font-bold leading-7 text-[#284553]">With Meltemi, every answer is written down before you arrive—so your holiday budget stays your holiday budget.</p>
         </div>
-        <div className="rounded-[2rem] border border-[#d9e4e7] bg-white p-5 shadow-[0_24px_70px_rgba(17,58,74,.09)] sm:p-8">
+        <div className="paper-panel comparison-panel rounded-[2rem] border border-[#d9e4e7] bg-white p-5 shadow-[0_24px_70px_rgba(17,58,74,.09)] sm:p-8">
           <div className="grid grid-cols-[1fr_auto] items-end gap-5 border-b border-[#dce5e9] pb-5"><div><p className="text-sm font-extrabold text-[#627781]">Ask before you book</p><p className="mt-1 text-xs text-[#819198]">No small print. No awkward desk surprise.</p></div><p className="text-right text-xs font-extrabold uppercase tracking-[0.12em] text-[#17786f]">Meltemi</p></div>
           <dl>
             {comparisonQuestions.map(([question, answer]) => (
@@ -197,12 +198,12 @@ export default function Home() {
           <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end"><div><p className="eyebrow">Four easy choices</p><h2 className="font-display mt-4 text-[clamp(2.7rem,5vw,4.5rem)] font-semibold leading-none tracking-[-0.045em]">Pick the shape of your trip.</h2></div><p className="max-w-[390px] text-base leading-7 text-[#60737d]">Every category follows the same clear-price promise. Final availability is confirmed personally.</p></div>
           <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {cars.map((car) => (
-              <article key={car.name} className="group overflow-hidden rounded-[1.6rem] border border-[#dfe8ea] bg-[#faf9f5] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,54,69,.11)]">
-                <div className="relative aspect-[4/3] overflow-hidden bg-[#e8eef0]"><img src={car.image} alt={car.alt} width="720" height="540" loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" /><span className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1.5 text-xs font-extrabold text-[#174e66] shadow-sm backdrop-blur">{car.category}</span></div>
+              <article key={car.name} className="fleet-card group overflow-hidden rounded-[1.6rem] border border-[#dfe8ea] bg-[#faf9f5] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(16,54,69,.11)]">
+                <div className="relative aspect-[4/3] overflow-hidden bg-[#e8eef0]"><img src={car.image} alt={car.alt} width="720" height="540" loading="lazy" className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" /><span className="fleet-label absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1.5 text-xs font-extrabold text-[#174e66] shadow-sm backdrop-blur">{car.category}</span></div>
                 <div className="p-5">
                   <div className="flex items-start justify-between gap-3"><div><h3 className="text-lg font-extrabold">{car.name}</h3><p className="text-xs text-[#77888f]">{car.similar}</p></div><p className="text-right text-2xl font-black tracking-[-0.04em] text-[#0c566d]">€{car.price}<span className="block text-[10px] font-bold uppercase tracking-[0.1em] text-[#7a8a91]">per day</span></p></div>
                   <div className="mt-5 flex flex-wrap gap-2 text-xs font-bold text-[#526b76]"><span className="feature-chip"><Users className="h-3.5 w-3.5" aria-hidden="true" /> {car.passengers}</span><span className="feature-chip"><BriefcaseBusiness className="h-3.5 w-3.5" aria-hidden="true" /> {car.bags}</span><span className="feature-chip"><Gauge className="h-3.5 w-3.5" aria-hidden="true" /> {car.transmission}</span></div>
-                  <a href="#booking" className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#b9d0d5] px-4 py-3 text-sm font-extrabold text-[#0b5369] transition hover:border-[#0b5369] hover:bg-[#0b5369] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b5369]">Request this category <ArrowRight className="h-4 w-4" aria-hidden="true" /></a>
+                  <a href="#booking" className="raised-button mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#b9d0d5] px-4 py-3 text-sm font-extrabold text-[#0b5369] transition hover:border-[#0b5369] hover:bg-[#0b5369] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0b5369]">Request this category <ArrowRight className="h-4 w-4" aria-hidden="true" /></a>
                 </div>
               </article>
             ))}
@@ -215,14 +216,13 @@ export default function Home() {
           <div><p className="text-xs font-extrabold uppercase tracking-[0.16em] text-[#7ce1d7]">Why Meltemi</p><h2 className="font-display mt-4 text-[clamp(2.8rem,5vw,4.7rem)] font-semibold leading-[.98] tracking-[-0.045em]">Less desk time. More island.</h2></div>
           <div className="grid gap-4 sm:grid-cols-3">
             {[["01", "No surprise maths", "Your cover and useful extras are already inside the price you compare."], ["02", "Airport made easy", "Handover and return at Kos Airport are included—no extra transfer to arrange."], ["03", "Help that answers", "If plans change on the road, 24/7 phone support is part of every rental."]].map(([number, title, copy]) => (
-              <article key={number} className="rounded-[1.6rem] border border-white/16 bg-white/8 p-6"><p className="font-display text-3xl font-semibold text-[#ffd166]">{number}</p><h3 className="mt-7 text-lg font-extrabold">{title}</h3><p className="mt-3 text-sm leading-6 text-white/70">{copy}</p></article>
+              <article key={number} className="reason-card rounded-[1.6rem] border border-white/16 bg-white/8 p-6"><p className="font-display text-3xl font-semibold text-[#ffd166]">{number}</p><h3 className="mt-7 text-lg font-extrabold">{title}</h3><p className="mt-3 text-sm leading-6 text-white/70">{copy}</p></article>
             ))}
           </div>
         </div>
       </section>
 
       <section id="booking" className="relative overflow-hidden bg-[#f8f6f1] py-24 lg:py-32">
-        <div className="absolute -right-48 top-10 h-[420px] w-[420px] rounded-full bg-[#dcefeb] blur-3xl" aria-hidden="true" />
         <div className="relative mx-auto grid w-full max-w-[1240px] gap-12 px-5 sm:px-8 lg:grid-cols-[.78fr_1.22fr] lg:px-10">
           <div>
             <p className="eyebrow">No payment. Just availability.</p><h2 className="font-display mt-4 text-[clamp(3rem,5vw,5rem)] font-semibold leading-[.96] tracking-[-0.05em] text-balance">Tell us when you land.</h2><p className="mt-6 max-w-[500px] text-lg leading-8 text-[#5d727c]">Send your dates and preferred car. We’ll reply with availability, your exact total and the rental terms before you decide.</p>
